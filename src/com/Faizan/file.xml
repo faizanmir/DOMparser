@@ -1,5 +1,6 @@
 <?xml version = "1.0"?>
 <block type="event_whenflagclicked" id="p(M9/$hxs{D`{9@VS9hm" x="139" y="272">
+   <variable></variable>
     <next>
         <block type="control_touch_sensor_container" id="L1)XNg_N`ohH{uPxImMh">
             <statement name="SUBSTACK">

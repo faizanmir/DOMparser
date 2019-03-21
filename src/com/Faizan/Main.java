@@ -41,7 +41,7 @@ public class Main {
     }
 
 
-   static void func(int blocknumber,Node node){
+   private static void func(int blocknumber,Node node){
 
         if(node.getNodeName().equalsIgnoreCase("block")){
             NodeList BlockChildren = node.getChildNodes();
@@ -51,11 +51,13 @@ public class Main {
                 if(tempNode.getNodeName().equalsIgnoreCase("statement")){
                     System.out.println("statement tag at level " + blocknumber);
                     System.out.println("Statement Tag parent: " + node.getParentNode().getNodeName());
+                    System.out.println("------------------------------------------------------STATEMENT----------------------------------------------------------------------------- " + blocknumber);
+
 
                 }
 
                 if(tempNode.getNodeName().equalsIgnoreCase("next")){
-                    System.out.println("next tag at level " + blocknumber);
+                    System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++ " + "next tag at level " + blocknumber + "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
                 }
 
                 if(tempNode.getNodeName().equalsIgnoreCase("value")){
@@ -65,7 +67,7 @@ public class Main {
                     if(valueChildren.item(i).getNodeName().equalsIgnoreCase("shadow")) {
                         NodeList shadowChildren = valueChildren.item(i).getChildNodes();
                         System.out.println(shadowChildren.item(i).getNodeName()+"    " + shadowChildren.item(i).getTextContent() +"     " + "Parent Tag :    " +  node.getParentNode().getNodeName());
-                        System.out.println();;
+                        System.out.println();
 
 
 
@@ -76,7 +78,5 @@ public class Main {
         }
     }
 
-    static void BlockParser(Node node , int position){
-
-    }
+   
 }
