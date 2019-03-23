@@ -35,7 +35,7 @@ public class Main {
 
              saxParser.parse(file,new UserHandler());
              for (int i = 0; i <nodeList.getLength() ; i++) {
-                func(i+1,nodeList.item(i));
+                func(i,nodeList.item(i));
             }
 
         } catch (ParserConfigurationException e) {
