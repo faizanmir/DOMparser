@@ -11,5 +11,5 @@ public class block {
     int block_depth;
     int blockIndex;
     int end;
-    int endIndex;
+
 }

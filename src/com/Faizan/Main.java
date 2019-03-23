@@ -107,14 +107,13 @@ public class Main {
 
 static class UserHandler extends DefaultHandler{
 
-        static HashMap<Integer,Integer> hashMap;
+
         ArrayList<block> blockArrayList;
         ArrayList<statement> statementArraylist;
-        ArrayList<Integer> depthArrayList,index,ends,endIndicies;
+
         static int depth;
         static int statementIndex;
-        static HashMap<Integer,Integer> start;
-        ArrayList<statement> childArrayList;
+
         int statementStart,statementEnd,blockEnd,blockIndex,blockdepth;
         ArrayList<SuperStructure> arrayList;
 
@@ -122,13 +121,7 @@ static class UserHandler extends DefaultHandler{
     public UserHandler() {
        blockArrayList = new ArrayList<>();
        statementArraylist = new ArrayList<>();
-       depthArrayList = new ArrayList<>();
-       index = new ArrayList<>();
-       ends = new ArrayList<>();
-       endIndicies= new ArrayList<>();
-       start = new HashMap<>();
-       childArrayList = new ArrayList<>();
-       hashMap = new HashMap<>();
+
        arrayList = new ArrayList<>();
     }
 
