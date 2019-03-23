@@ -40,6 +40,8 @@ public class Main {
 
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
+        } catch (SAXParseException e ){
+            System.out.println("XML FILE CORRUPTED");
         } catch (SAXException e) {
             e.printStackTrace();
         } catch (IOException e) {

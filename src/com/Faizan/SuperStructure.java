@@ -1,14 +1,23 @@
 package com.Faizan;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
+
 
 public class SuperStructure {
     ArrayList<statement> statements;
     ArrayList<block> blocks;
+    static HashMap<Integer,Integer> BlockData;
+    block blockObject;
+    statement staementObject;
 
     public SuperStructure(ArrayList<statement> statements, ArrayList<block> blocks) {
         this.statements = statements;
         this.blocks = blocks;
+        BlockData = new HashMap<>();
+
+
     }
 
     public void function() {
@@ -24,10 +33,17 @@ public class SuperStructure {
            {
                if(e.start<b.block_depth){
                    System.out.println("Block     "+ b.blockIndex  + "     is under    "    + e.index);
+                   BlockData.put(b.blockIndex,e.index);
+
                }
            }
        }
+        System.out.println("\n\n\n\n\n Final block hierarchy level \n\n\n\n\n"  + BlockData.entrySet());
 
+
+
+
+        System.out.println("----------------------------------------SAXPARSER END----------------------------------------------------------------- ");
         }
 
     }
