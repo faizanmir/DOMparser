@@ -112,12 +112,15 @@ static class UserHandler extends DefaultHandler{
 
         ArrayList<block> blockArrayList;
         ArrayList<statement> statementArraylist;
+        String attributesStr;
+        String attrValue;
 
         static int depth;
         static int statementIndex;
 
         int statementStart,statementEnd,blockEnd,blockIndex,blockdepth;
         ArrayList<SuperStructure> arrayList;
+        SuperStructure superStructure;
 
 
     public UserHandler() {
@@ -138,11 +141,8 @@ static class UserHandler extends DefaultHandler{
     @Override
     public void endDocument() throws SAXException {
 
-        SuperStructure superStructure = new SuperStructure(statementArraylist,blockArrayList);
+        superStructure  = new SuperStructure(statementArraylist,blockArrayList);
         superStructure.function();
-
-
-
 
     }
 
@@ -151,11 +151,12 @@ static class UserHandler extends DefaultHandler{
         if(qName.equalsIgnoreCase("Statement")){
             statementStart = depth;
             statementCreator();
-            System.out.println("statement start found depth    "+ depth);
-            System.out.println("Putting index on statement " + statementIndex);
+
             depth++;
             statementIndex++;
 
+            System.out.println("statement start found depth    "+ depth);
+            System.out.println("Putting index on statement " + statementIndex);
 
 
 
@@ -166,8 +167,10 @@ static class UserHandler extends DefaultHandler{
         }
         if(qName.equalsIgnoreCase("block")){
             blockdepth = depth;
+            attributesStr = attributes.getValue("type");
+            attrValue = attributes.getValue("type");
             blockCreator();
-            System.out.println("Block Depth  "  + (depth++) + "       "+"The block index is   " +blockIndex );
+            System.out.println("Block Depth  "  + (depth++) + "       "+"The block index is   " +blockIndex + "      Attributes for this are    " + attributesStr);
             blockIndex++;
 
 
@@ -183,6 +186,7 @@ static class UserHandler extends DefaultHandler{
          System.out.println("statement end found   " + "   "+depth   +"   " + "for the statement with index     "  + statementIndex--);
             statementEnd = depth;
 
+
          }
          if(qName.equalsIgnoreCase("block")){
              blockEnd = depth;
@@ -197,8 +201,9 @@ static class UserHandler extends DefaultHandler{
         statementArraylist.add(statement);
     }
     void blockCreator(){
-        block block = new block(blockdepth,blockIndex,blockEnd);
+        block block = new block(blockdepth,blockIndex,blockEnd,attrValue);
         blockArrayList.add(block);
+
     }
 
     }
